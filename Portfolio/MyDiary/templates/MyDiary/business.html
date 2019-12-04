@@ -1,0 +1,30 @@
+{% extends "Mydiary/layout.html" %}
+
+{% block title %}
+    All Businesses
+{% endblock %}
+
+{% block body %}
+<br/><br/>
+
+<link rel="stylesheet" href="Styling/CSS/business.css">
+
+    {% if message %}
+      {{ message }}
+    {% endif %}
+
+    <h1>
+       {% for business in businesses %}
+             <form action="{% url 'checkBusiness'%}" method="post">
+                    {% csrf_token %}
+                    <button type="submit" name="business_obj" value="{{ business }}" class="btn-link"> {{ business.name }}, {{ business.location.address }}, {{ business.location.postalCode }} </button>
+                    <br/>
+             </form>
+        {% endfor %}
+
+        <a href="{% url 'index' %}" > Back to Home </a>
+
+
+     </h1>
+
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends "MyDiary/layout.html" %}
+
+{% block title %}
+    All Songs
+{% endblock %}
+
+{% block body %}
+                <div>
+                <br/> <br/>
+                    <h1>Account Information</h1><br/><br/>
+
+                    <h2>Name: {{ Name }}</h2><br/>
+                    <h2>Email: {{ Email }}</h2><br/>
+                    <h2>Username: {{ Username }}</h2><br/>
+                </div>
+
+                <div>
+
+                <h2>My Actions:</h2><br/></br>
+
+                    {% for action in Actions %}
+                        <h2>  You posted review for {{ action.business.name }}: {{ action.description }} </h2>
+                    {% endfor %}
+
+
+                </div>
+
+{% endblock %}

@@ -1,0 +1,43 @@
+{% extends "Mydiary/layout.html" %}
+
+{% block title %}
+    Business
+{% endblock %}
+
+{% block body %}
+<br/><br/>
+
+<link rel="stylesheet" href="Styling/CSS/checkBusiness.css">
+
+    {% if message %}
+      {{ message }}
+    {% endif %}
+
+    <div class="row">
+      <div id="business_info" class="column">
+          <h1> {{ business.name }} </h1>
+          <ul>
+              <li>Address: {{ business.street_address }}</li>
+          </ul>
+
+        <form class="form" action="{% url 'postComment' business.checkId %}" id="review_sec" method="post">
+            {% csrf_token %}
+            <div class="form-group">
+              {% if message %}
+                  {{ message }}
+              {% endif %}
+                  <input type="text" class="form-control form-control-lg rounded-2" name="comment" id="comment" placehoder="How was your experience?"  style="width: 50%; padding: 20px 10px; line-height: 28px;"><br/>
+                  <button class="btn btn-info" name="submit" id='btn'>Submit</button>
+            </div>
+        </form><br/>
+      </div>
+
+        <div class="column">
+            {% for review in reviews %}
+                <p> {{ review.description }} - {{ review.reviewer.first_name }} </p>
+            {% endfor %}
+            <a href="{% url 'index' %}" > Back to Home </a>
+        </div>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends "Mydiary/layout.html" %}
+
+{% block title %}
+    Success
+{% endblock %}
+
+{% block body %}
+<br/><br/>
+
+<link rel="stylesheet" href="Styling/CSS/business.css">
+
+    {% if message %}
+        {{ message }}
+    {% endif %}
+
+
+{% endblock %}

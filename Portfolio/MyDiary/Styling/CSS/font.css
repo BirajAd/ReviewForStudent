@@ -1,0 +1,37 @@
+.navbar {
+    background-color: aqua;
+}
+
+.navbar-brand {
+    font-family: cursive;
+    color: white;
+}
+
+.nav-link {
+    font-family: 'Lucida Grande';
+    color: white;
+}
+
+.nav-profile {
+    white-space: nowrap;
+}
+
+.row {
+    float: left;
+    width: 50%;
+    padding: 10px;
+}
+
+.imgHolder {
+    position: relative;
+}
+
+.imgHolder span {
+    position: absolute;
+    right: 10px;
+    margin-top: 90%;
+}
+
+h1{
+    color: aqua;
+}

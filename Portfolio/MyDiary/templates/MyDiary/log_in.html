@@ -1,0 +1,63 @@
+{% extends "Mydiary/layout.html" %}
+
+{% block title %}
+    Log In
+{% endblock %}
+
+{% block body %}
+    <div class="row">
+        <div class="col-md-10" style="width:800px; margin-left:50%; margin-top: 7%;">
+            <div class="card rounded-2" id="login-form">
+                    {% if message %}
+                    <div>
+                        {{ message }}
+                    </div>
+                    {% endif %}
+
+                <div class="card-header">
+                  <br/><br/>
+                    <h3 class="mb-0" style="text-align: center;"">MyDiary</h3>
+                </div>
+                <div class="card-body">
+                    <form class="form" action="{% url 'logIn' %}" id="formLogin" method="POST">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <label for="username">Username</label>
+                            <input type="text" class="form-control form-control-lg rounded-2" name=username id="username">
+
+                        </div>
+                        <div class="form-group">
+                            <label>Password</label>
+                            <input type="password" class="form-control form-control-lg rounded-2" name=password id="pwd1">
+
+                        </div>
+                        <button type="submit" class="btn btn-success btn-lg float-right" id="btnLogin">Login</button></br>
+                        <a href="{% url 'sign_up' %}"> Sign Up </a>
+                    </form>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+        <!-- <h1 style="width:800px; margin:0 auto;">Log In</h1><br/>
+            {% if message %}
+                <div>
+                    {{ message }}
+                </div>
+            {% endif %}
+
+            <div style="width:800px; margin:0 auto;">
+                    <form action="{% url 'logIn' %}" method="post">
+                            {% csrf_token %}
+                            Username:
+                            <input name=username type="text"/><br/><br/>
+                            Password:
+                            <input name=password type="password"/><br/>
+                            <input type="submit" value="submit"><br/>
+                    </form>
+            </div> -->
+
+
+{% endblock %}
