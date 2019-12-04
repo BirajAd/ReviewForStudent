@@ -112,6 +112,12 @@ def business(request):
     else:
         return render(request, 'MyDiary/business.html', {"message": 'Invalid Input'})
 
+def contact(request):
+    return render(request, 'MyDiary/contact.html')
+
+def about(request):
+    return render(request, 'MyDiary/about.html')
+
 def checkBusiness(request):
     business = request.POST["business_obj"]
     #business = business[2:-2]
@@ -132,6 +138,7 @@ def checkBusiness(request):
     t_state=business['location']['state']
     t_country=business['location']['country']
     t_category=business['categories'][0]['name']
+    #t_img = business['categories'][0]['icon']['prefix']
     t_checkId=business['id']
     try:
         result = Business.objects.get(checkId=business['id'])

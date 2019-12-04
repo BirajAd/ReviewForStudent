@@ -36,6 +36,7 @@
             {% for review in reviews %}
                 <p> {{ review.description }} - {{ review.reviewer.first_name }} </p>
             {% endfor %}
+            <br/>
             <a href="{% url 'index' %}" > Back to Home </a>
         </div>
     </div>
