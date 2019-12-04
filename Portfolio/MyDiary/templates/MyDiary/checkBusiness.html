@@ -18,7 +18,35 @@
           <h1> {{ business.name }} </h1>
           <ul>
               <li>Address: {{ business.street_address }}</li>
+              <li id='latlong'> {{ business.lat }} {{ business.lon }} </li>
           </ul>
+
+          <style>
+  /* Always set the map height explicitly to define the size of the div
+   * element that contains the map. */
+                  #map {
+                    height: 100%;
+                  }
+                  /* Optional: Makes the sample page fill the window. */
+                  html, body {
+                    height: 100%;
+                    margin: 0;
+                    padding: 0;
+                  }
+                </style>
+
+          <div id="map"></div>
+          <script>
+            var map;
+            function initMap() {
+              map = new google.maps.Map(document.getElementById('map'), {
+                center: {lat: {{ business.lat }}, lng: {{ business.lon }} },
+                zoom: 18
+              });
+            }
+          </script>
+          <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAjZOh4410n3SB-fEvFDtHV9yIPomOkVJ8&callback=initMap"
+          async defer></script><br/>
 
         <form class="form" action="{% url 'postComment' business.checkId %}" id="review_sec" method="post">
             {% csrf_token %}
@@ -26,8 +54,8 @@
               {% if message %}
                   {{ message }}
               {% endif %}
-                  <input type="text" class="form-control form-control-lg rounded-2" name="comment" id="comment" placehoder="How was your experience?"  style="width: 50%; padding: 20px 10px; line-height: 28px;"><br/>
-                  <button class="btn btn-info" name="submit" id='btn'>Submit</button>
+                  <textarea class="form-control form-control-lg rounded-2" name="comment" id="comment" style="width: 50%; padding: 20px 10px; line-height: 28px;"></textarea><br/>
+                  <br/><button class="btn btn-info" name="submit" id='btn'>Submit</button>
             </div>
         </form><br/>
       </div>

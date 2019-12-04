@@ -29,6 +29,9 @@ def sign_up(request):
         email = request.POST["email"]
         firstName = request.POST["firstName"]
         lastName = request.POST["lastName"]
+        if(email.endswith('.edu') == False):
+            return render(request, "MyDiary/Error.html", {"message": "Sorry, you can not sign up if you are not an student."})
+
         user = User.objects.create_user(username, email, password)
         if user is not None:
             user.first_name = firstName
@@ -138,13 +141,16 @@ def checkBusiness(request):
     t_state=business['location']['state']
     t_country=business['location']['country']
     t_category=business['categories'][0]['name']
+    t_lat = business['location']['lat']
+    t_lon = business['location']['lng']
+
     #t_img = business['categories'][0]['icon']['prefix']
     t_checkId=business['id']
     try:
         result = Business.objects.get(checkId=business['id'])
 
     except Business.DoesNotExist:
-        b = Business(name=t_name, street_address=t_street_address, city=t_city, state=t_state, country=t_country, category=t_category, checkId=t_checkId)
+        b = Business(name=t_name, street_address=t_street_address, city=t_city, state=t_state, country=t_country, category=t_category, lat=t_lat, lon=t_lon, checkId=t_checkId)
         b.save()
         result = Business.objects.get(checkId=t_checkId)
 

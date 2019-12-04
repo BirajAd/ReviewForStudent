@@ -14,12 +14,12 @@
                     <h2>Username: {{ Username }}</h2><br/>
                 </div>
 
-                <div>
+                <div><br/>
 
-                <h2>My Actions:</h2><br/></br>
+                <h2>My Actions:</h2>
 
                     {% for action in Actions %}
-                        <h2>  You posted review for {{ action.business.name }}: {{ action.description }} </h2>
+                        <h2 style="padding-left: 2%;">  You posted review for {{ action.business.name }}: {{ action.description }} </h2>
                     {% endfor %}
 
 

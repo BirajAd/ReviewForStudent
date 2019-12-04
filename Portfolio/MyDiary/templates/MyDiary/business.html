@@ -17,7 +17,7 @@
        {% for business in businesses %}
              <form action="{% url 'checkBusiness'%}" method="post">
                     {% csrf_token %}
-                    <button type="submit" name="business_obj" value="{{ business }}" class="btn-link"> {{ business.name }}, {{ business.location.address }}, {{ business.location.postalCode }} </button>
+                    <button type="submit" name="business_obj" value="{{ business }}" class="btn-link"> <font size="5px"> <font color="green"> {{ business.name }}, {{ business.location.address }}, {{ business.location.postalCode }} </button>
                     <br/>
              </form>
         {% endfor %}

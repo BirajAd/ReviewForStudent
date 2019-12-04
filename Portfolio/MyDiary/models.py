@@ -9,6 +9,8 @@ class Business(models.Model):
     state = models.CharField(max_length = 2)
     country = models.CharField(max_length = 50)
     category = models.CharField(max_length = 30)
+    lat = models.FloatField()
+    lon = models.FloatField()
     checkId = models.CharField(max_length = 500)
 
     def __str__(self):

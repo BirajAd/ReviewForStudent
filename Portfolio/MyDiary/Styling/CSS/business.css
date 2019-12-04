@@ -5,7 +5,10 @@
     cursor: pointer;
     color: #0000EE;
     padding: 0;
-    text-decoration: underline;
+    text-decoration: none;
     font-family: inherit;
-    font-size: inherit;
+}
+
+#business_name{
+  font-size: 2px;
 }
