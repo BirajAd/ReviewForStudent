@@ -9,13 +9,13 @@ img{
 
 /* Just for input box and reco bar */
 
-* {
+/* * {
   box-sizing: border-box;
-}
+} */
 
-body {
+/* body {
   font: 16px Arial;
-}
+} */
 
 /*the container must be positioned relative:*/
 .autocomplete {
@@ -72,9 +72,10 @@ input[type=submit] {
   color: #ffffff;
 }
 
-
 /* Ends here */
 
+
+/*
 @media screen and (max-width: 1200px) {
   .navbar navbar-expand-lg navbar-dark bg-dark a:not(:first-child), .dropdown .dropbtn {
     display: none;
@@ -101,10 +102,10 @@ input[type=submit] {
   .navbar.responsive .dropdown {float: none;}
   .navbar.responsive .dropdown-content {position: relative; margin-left: 12%;}
   .navbar.responsive .dropdown .dropbtn {
-    margin-top: 3%;
+    margin-top: 2%;
     margin-left: 7%;
     display: block;
     width: 100%;
     text-align: left;
   }
-}
+} */

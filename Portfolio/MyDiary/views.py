@@ -11,6 +11,7 @@ import json
 from .models import Business, Review
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect
+from secret import *
 
 def myAccount(request):
     context = {
@@ -78,8 +79,8 @@ def loadApi(university, busiType):
     #response = requests.get('https://dev.virtualearth.net/REST/v1/LocalSearch/?type=MovieTheaters,KoreanRestaurants&userCircularMapView=44.1636,-93.9994,300&key=AqknOo4_TMZT44ZDjJefyPmkPPTuyLYyg7Gmw9dSBE1RqRMbBl_C0vbxqScnqF7g')
     url = 'https://api.foursquare.com/v2/venues/explore'
     params = dict(
-          client_id='GEKN1JRDSVHRCHGQOFAWFAL0JIH43WRT4WNOL1HD4R31I3S4',
-          client_secret='C5GQCRI0J2B4GM12Y3QEDRYGDFGKYN2MNQKJLDKG0MMUEUHD',
+          client_id = os.environ.get('fs_client_id'),
+          client_secret = os.environ.get('fs_client_secret'),
           v='20180323',
           ll=latlong,
           query=busiType,
@@ -144,8 +145,10 @@ def checkBusiness(request):
     t_lat = business['location']['lat']
     t_lon = business['location']['lng']
 
+
     #t_img = business['categories'][0]['icon']['prefix']
     t_checkId=business['id']
+    api = os.environ.get('google_api')
     try:
         result = Business.objects.get(checkId=business['id'])
 
@@ -158,6 +161,7 @@ def checkBusiness(request):
     context = {
         'business': result,
         'reviews': all_comments,
+        'API': api,
     }
 
     return render(request, "MyDiary/checkBusiness.html", context)

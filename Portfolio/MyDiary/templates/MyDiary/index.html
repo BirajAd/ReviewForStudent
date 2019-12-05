@@ -1,18 +1,19 @@
-{% extends "Mydiary/layout.html" %}
+{% extends "MyDiary/layout.html" %}
 
 {% block title %}
     All Songs
 {% endblock %}
 
 {% block body %}
-            <script type="text/javascript" src="/browserify.js">
-            <script type="text/javascript" src="Styling/JS/autosuggestion.js"></script>
-            <link rel="stylesheet" href="Styling/CSS/font.css">
+            <!-- <script type="text/javascript" src="/browserify.js">
+            <script type="text/javascript" src="Styling/JS/autosuggestion.js"></script> -->
+            <!-- <link rel="stylesheet" href="Styling/CSS/font.css"> -->
             <link rel="stylesheet" href="Styling/CSS/index.css">
                 <!-- <body style="background:url({'C:\Users\adhik\Desktop\Django\FunWebsite\MusicHost\templates\MusicHost\flower.jpeg'})">  -->
             <div style="left:28%">
                 <img src="Styling/Images/logo.png"/><br/>
             </div>
+
             <div style="position:absolute; left:32%; top:75%;">
               <!--Make sure the form has the autocomplete function switched off:-->
             <form autocomplete="off" action="{% url 'business' %}" method="POST">
