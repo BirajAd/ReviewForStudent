@@ -7,3 +7,9 @@ It is a yelp like website, which is for the use of students only. A user can sig
 visit the website and check the reviews posted for any businesses. However, when it comes to posting reviews it is limited to only users and 
 all our users are students. 
 
+Instruction on setting up the project:
+1. Install Python3.x
+1. Install Pandas library
+1. use your google api key and keep it in a secret.py file
+1. Execute command ```python manage.py runserver```
+
