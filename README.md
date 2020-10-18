@@ -9,7 +9,7 @@ all our users are students.
 
 Instruction on setting up the project:
 1. Install Python3.x
-1. Install Pandas library
+1. Execute pip install -r requirements.txt
 1. use your google api key and keep it in a secret.py file
 1. Execute command ```python manage.py runserver```
 
